@@ -1,0 +1,10 @@
+{
+  "author": "Adrian Garcia Estaun",
+  "name": "password-validator",
+  "description": "Validate passwords and PINS",
+  "keywords": ["validation", "password", "PIN", "numeric password", "input field validation"],
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+  }
+}
