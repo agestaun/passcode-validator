@@ -7,7 +7,7 @@ class LowercaseRule extends Rule {
     }
 
     isValid(subject: string): boolean {
-        return subject.toLowerCase() !== subject
+        return subject.toUpperCase() !== subject
     }
 }
 
