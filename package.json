@@ -5,6 +5,8 @@
   "keywords": ["validation", "password", "PIN", "numeric password", "input field validation"],
   "version": "1.0.0",
   "license": "MIT",
+  "main": "src/index.ts",
+  "homepage": "https://github.com/agestaun/password-validator",
   "dependencies": {
   }
 }
