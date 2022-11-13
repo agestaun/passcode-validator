@@ -1,0 +1,11 @@
+{
+  "testRegex": "(/tests/.*|(\\.|/)(test|spec))\\.ts?$",
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "transform": {
+    "^.+\\.ts?$": "ts-jest"
+  },
+  "transformIgnorePatterns": [
+    "./node_modules/"
+  ]
+}
