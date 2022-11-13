@@ -5,7 +5,7 @@ abstract class Rule {
         this.errorMessage = errorMessage;
     }
 
-    getError(): string | null {
+    getError(): string | undefined | null {
         return this.errorMessage;
     }
 
