@@ -2,11 +2,24 @@
   "author": "Adrian Garcia Estaun",
   "name": "password-validator",
   "description": "Validate passwords and PINS",
-  "keywords": ["validation", "password", "PIN", "numeric password", "input field validation"],
+  "keywords": [
+    "validation",
+    "password",
+    "PIN",
+    "numeric password",
+    "input field validation"
+  ],
   "version": "1.0.0",
   "license": "MIT",
   "main": "src/index.ts",
   "homepage": "https://github.com/agestaun/password-validator",
-  "dependencies": {
+  "scripts": {
+    "lint": "npx eslint ."
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.42.1",
+    "@typescript-eslint/parser": "5.42.1",
+    "eslint": "8.27.0",
+    "typescript": "4.8.4"
   }
 }
