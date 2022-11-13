@@ -1,5 +1,5 @@
-import Rule from "./rules/Rule";
-import ValidationResponse from "./ValidationResponse";
+import Rule from './rules/Rule';
+import ValidationResponse from './ValidationResponse';
 
 class Validator {
     private rules: Rule[];
@@ -16,9 +16,9 @@ class Validator {
     validate = (subject: string): ValidationResponse[] => {
         return this.rules.map((rule) =>  {
             const valid = rule.isValid(subject);
-            return { rule, valid, error: valid ? null : rule.getError()}
+            return {rule, valid, error: valid ? null : rule.getError()};
         });
-    }
+    };
 
     /**
      * Checks if the password meets all the rules.

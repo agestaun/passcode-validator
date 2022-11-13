@@ -13,6 +13,33 @@
     "no-multiple-empty-lines": "error",
     "comma-style": "error",
     "no-unused-expressions": "error",
+    "space-before-blocks": "error",
+    "spaced-comment": "error",
+    "object-curly-spacing": "error",
+    "brace-style": "error",
+    "block-spacing": [
+      "error",
+      "always"
+    ],
+    "array-bracket-spacing": [
+      "error",
+      "never"
+    ],
+    "arrow-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
     "sort-imports": [
       "error",
       {

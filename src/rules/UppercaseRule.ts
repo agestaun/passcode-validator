@@ -1,4 +1,4 @@
-import Rule from "./Rule";
+import Rule from './Rule';
 
 class UppercaseRule extends Rule {
 
@@ -7,7 +7,7 @@ class UppercaseRule extends Rule {
     }
 
     isValid(subject: string): boolean {
-        return subject.toLowerCase() !== subject
+        return subject.toLowerCase() !== subject;
     }
 }
 

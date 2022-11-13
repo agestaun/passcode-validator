@@ -1,4 +1,4 @@
-import Rule from "./rules/Rule";
+import Rule from './rules/Rule';
 
 /**
  * Type which contains the rule, a value indicating if it's valid and the error if it's not.
