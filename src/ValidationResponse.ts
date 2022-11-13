@@ -6,7 +6,7 @@ import Rule from './rules/Rule';
 type ValidationResponse = {
     rule: Rule;
     valid: boolean;
-    error: string;
+    error?: string | null;
 }
 
 export default ValidationResponse;

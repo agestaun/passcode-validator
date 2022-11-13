@@ -3,7 +3,7 @@ import Rule from './Rule';
 
 class LengthRule extends Rule {
     readonly minLength: number;
-    readonly maxLength?: number;
+    readonly maxLength: number;
 
     /**
      *
@@ -18,7 +18,7 @@ class LengthRule extends Rule {
     }
 
     isValid(subject: string): boolean {
-        return subject.length >= this.minLength && this.maxLength <= this.maxLength;
+        return subject.length >= this.minLength && subject.length <= this.maxLength;
     }
 }
 
