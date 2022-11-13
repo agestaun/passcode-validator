@@ -7,6 +7,9 @@
   "plugins": [
     "@typescript-eslint"
   ],
+  "ignorePatterns": [
+    "build"
+  ],
   "root": true,
   "rules": {
     "no-empty": "error",
