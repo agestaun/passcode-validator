@@ -14,7 +14,7 @@ class Validator {
      * @return An array of {@link ValidationResponse}.
      */
     validate = (subject: string): ValidationResponse[] => {
-        return this.rules.map((rule) =>  {
+        return this.rules.map((rule) => {
             const valid = rule.isValid(subject);
             return {rule, valid, error: valid ? null : rule.getError()};
         });
