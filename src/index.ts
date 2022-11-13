@@ -1,6 +1,6 @@
-import Validator from './Validator';
-import UppercaseRule from "./rules/UppercaseRule";
 import LowercaseRule from "./rules/LowercaseRule";
+import UppercaseRule from "./rules/UppercaseRule";
+import Validator from './Validator';
 
-export { Validator }
-export { UppercaseRule, LowercaseRule }
+export {Validator}
+export {UppercaseRule, LowercaseRule}
