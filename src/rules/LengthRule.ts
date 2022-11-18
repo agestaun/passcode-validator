@@ -1,5 +1,9 @@
 import Rule from './Rule';
 
+export enum LengthRuleError {
+    ZERO_VALUE = 'The values cannot be zero.',
+    MAX_LENGTH_GREATER = 'If maxLength is received, it must be greater than minLength.'
+}
 
 class LengthRule extends Rule {
     readonly minLength: number;
@@ -13,8 +17,14 @@ class LengthRule extends Rule {
      */
     constructor(minLength: number, maxLength?: number, errorMessage?: string) {
         super(errorMessage);
-        this.minLength = minLength;
-        this.maxLength = maxLength ?? minLength;
+        if (minLength === 0 || maxLength === 0) {
+            throw LengthRuleError.ZERO_VALUE;
+        } else if (maxLength && (maxLength < minLength)) {
+            throw LengthRuleError.MAX_LENGTH_GREATER;
+        } else {
+            this.minLength = minLength;
+            this.maxLength = maxLength ?? minLength;
+        }
     }
 
     isValid(subject: string): boolean {
