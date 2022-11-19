@@ -43,6 +43,12 @@
       "error",
       "single"
     ],
+    "newline-per-chained-call": [
+      "error",
+      {
+        "ignoreChainWithDepth": 2
+      }
+    ],
     "sort-imports": [
       "error",
       {
