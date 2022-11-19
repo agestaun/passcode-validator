@@ -13,7 +13,12 @@
   "root": true,
   "rules": {
     "no-empty": "error",
-    "no-multiple-empty-lines": "error",
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
     "comma-style": "error",
     "no-unused-expressions": "error",
     "space-before-blocks": "error",
