@@ -1,8 +1,8 @@
 import Rule from './Rule';
 
 export enum LengthRuleError {
-    ZERO_VALUE = 'The values cannot be zero.',
-    MAX_LENGTH_GREATER = 'If maxLength is received, it must be greater than minLength.'
+    POSITIVE_VALUE_REQUIRED = 'The values cannot be smaller or equal to zero.',
+    MAX_LENGTH_GREATER = 'If maxLength is received, it must be greater or equal to minLength.'
 }
 
 class LengthRule extends Rule {
@@ -17,8 +17,8 @@ class LengthRule extends Rule {
      */
     constructor(minLength: number, maxLength?: number, errorMessage?: string) {
         super(errorMessage);
-        if (minLength === 0 || maxLength === 0) {
-            throw LengthRuleError.ZERO_VALUE;
+        if (minLength <= 0 || maxLength === 0) {
+            throw LengthRuleError.POSITIVE_VALUE_REQUIRED;
         } else if (maxLength && (maxLength < minLength)) {
             throw LengthRuleError.MAX_LENGTH_GREATER;
         } else {
