@@ -28,23 +28,27 @@ describe('Length Rule', () => {
         expect(valid).toBe(true);
     });
 
+    test('should create the instance if minLength and maxLength have the same value', () => {
+        expect(new LengthRule(6, 6)).toBeTruthy();
+    });
+
+    test('should throw an error if minLength is negative', () => {
+        expect(() => new LengthRule(-6))
+            .toThrow(LengthRuleError.POSITIVE_VALUE_REQUIRED);
+    });
+
     test('should throw an error if minLength is 0', () => {
-        expect(() => new Validator([new LengthRule(0)]))
-            .toThrow(LengthRuleError.ZERO_VALUE);
+        expect(() => new LengthRule(0))
+            .toThrow(LengthRuleError.POSITIVE_VALUE_REQUIRED);
     });
 
     test('should throw an error if maxLength is 0', () => {
-        expect(() => new Validator([new LengthRule(6, 0)]))
-            .toThrow(LengthRuleError.ZERO_VALUE);
+        expect(() => new LengthRule(6, 0))
+            .toThrow(LengthRuleError.POSITIVE_VALUE_REQUIRED);
     });
 
     test('should throw an error if maxLength is smaller than minLength', () => {
-        expect(() => new Validator([new LengthRule(6, 5)]))
+        expect(() => new LengthRule(6, 5))
             .toThrow(LengthRuleError.MAX_LENGTH_GREATER);
-    });
-
-    test('should be valid if minLength and maxLength have the same value', () => {
-        expect(new Validator([new LengthRule(6, 6)]))
-            .toBeTruthy();
     });
 });
