@@ -4,5 +4,5 @@ import NumericRule from './rules/NumericRule';
 import UppercaseRule from './rules/UppercaseRule';
 import Validator from './Validator';
 
-export {Validator};
-export {UppercaseRule, LowercaseRule, LengthRule, NumericRule};
+export { UppercaseRule, LowercaseRule, LengthRule, NumericRule };
+export default Validator;

@@ -1,29 +1,30 @@
-import {LengthRule, Validator} from '../src';
-import {LengthRuleError} from '../src/rules/LengthRule';
+import { LengthRule } from '../src';
+import { LengthRuleError } from '../src/rules/LengthRule';
+import Validator from '../src/Validator';
 
 describe('Length Rule', () => {
 
     test('should not be valid if it does not meet the required length', () => {
-        const validator = new Validator([new LengthRule(6)]);
+        const validator = new Validator().length(6).build();
         const valid = validator.isValid('mypassword');
         expect(valid).toBe(false);
     });
 
     test('should be valid if it meets the required length', () => {
-        const validator = new Validator([new LengthRule(6)]);
+        const validator = new Validator().length(6).build();
         const valid = validator.isValid('mypass');
         expect(valid).toBe(true);
     });
 
     test('should not be valid if it does not meet the range length', () => {
-        const validator = new Validator([new LengthRule(6, 8)]);
+        const validator = new Validator().length(6, 8).build();
         const firstValidation = validator.isValid('mypwd');
         const secondValidation = validator.isValid('mypassword');
         expect(firstValidation || secondValidation).toBe(false);
     });
 
     test('should be valid if it meets the range length', () => {
-        const validator = new Validator([new LengthRule(6, 8)]);
+        const validator = new Validator().length(6, 8).build();
         const valid = validator.isValid('mypass');
         expect(valid).toBe(true);
     });
