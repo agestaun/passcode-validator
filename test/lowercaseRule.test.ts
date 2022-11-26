@@ -1,15 +1,15 @@
-import {LowercaseRule, Validator} from '../src';
+import Validator from '../src/Validator';
 
 describe('Lowercase Rule', () => {
 
+    const validator = new Validator().lowerCase().build();
+
     test('should not be valid with no lowercase characters', () => {
-        const validator = new Validator([new LowercaseRule()]);
         const valid = validator.isValid('MYPASSWORD');
         expect(valid).toBe(false);
     });
 
     test('should be valid with lowercase characters', () => {
-        const validator = new Validator([new LowercaseRule()]);
         const valid = validator.isValid('myPASSWORD');
         expect(valid).toBe(true);
     });

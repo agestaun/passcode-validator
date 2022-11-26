@@ -1,43 +1,37 @@
-import Rule from './rules/Rule';
-import ValidationResponse from './ValidationResponse';
+import PasswordValidator from './PasswordValidator';
+import LengthRule from './rules/LengthRule';
+import LowercaseRule from './rules/LowercaseRule';
+import NumericRule from './rules/NumericRule';
+import UppercaseRule from './rules/UppercaseRule';
 
-class Validator {
-    private rules: Rule[];
+// Class that implements the builder pattern. I avoid to name it ValidatorBuilder to
+// make it cleaner for consume.
+export default class Validator {
+    private readonly validator: PasswordValidator;
 
-    constructor(rules: Rule[]) {
-        this.rules = rules;
+    constructor() {
+        this.validator = new PasswordValidator();
     }
 
-    /**
-     * Validates the subject against the rules. To check only if it's valid call {@link isValid}.
-     * @param subject The password/PIN to validate.
-     * @return An array of {@link ValidationResponse}.
-     */
-    validate = (subject: string): ValidationResponse[] => {
-        return this.rules.map((rule) => {
-            const valid = rule.isValid(subject);
-            return {rule, valid, error: valid ? null : rule.getError()};
-        });
+    upperCase = (): Validator => {
+        this.validator.addRule(new UppercaseRule());
+        return this;
     };
 
-    /**
-     * Checks if the password meets all the rules.
-     * @param subject The password/PIN to check. To see what rules the subject meets call {@link validate}.
-     * @return True if it meets all the rules. Otherwise, false.
-     */
-    isValid = (subject: string): boolean => this.rules.every((r) => r.isValid(subject));
+    lowerCase = (): Validator => {
+        this.validator.addRule(new LowercaseRule());
+        return this;
+    };
 
-    /**
-     * Replaces the current rules.
-     * @param rules The new rules to set.
-     */
-    update = (rules: Rule[]) => this.rules = rules;
+    length = (min: number, max?: number): Validator => {
+        this.validator.addRule(new LengthRule(min, max));
+        return this;
+    };
 
-    /**
-     * Get the current rules.
-     * @return The rules to validate the password/PIN.
-     */
-    getRules = (): Rule[] => this.getRules();
+    numeric = (): Validator => {
+        this.validator.addRule(new NumericRule());
+        return this;
+    };
+
+    build = (): PasswordValidator => this.validator;
 }
-
-export default Validator;
