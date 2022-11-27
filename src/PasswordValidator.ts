@@ -42,10 +42,20 @@ export default class PasswordValidator {
     getRules = (): Rule[] => this.getRules();
 
     /**
-     * Adds a new rule if it does not exist.
+     * Adds a new rule if it does not exist. Throws an error if the instance was already added.
      * @param rule
      */
-    addRule = (rule: Rule) => this.rules.add(rule);
+    addRule = (rule: Rule) => {
+        Array.from(this.rules).every((r) => {
+            const className = r.constructor.name;
+            if (className !== rule.constructor.name) {
+                return true;
+            } else {
+                throw `You cannot set the same rule more than once '${className}'. Use updateRules to update all the rules.`;
+            }
+        });
+        this.rules.add(rule);
+    };
 
     /**
      * Deletes an existing rule.
