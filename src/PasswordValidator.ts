@@ -46,11 +46,9 @@ export default class PasswordValidator {
      * @param rule
      */
     addRule = (rule: Rule) => {
-        Array.from(this.rules).every((r) => {
+        Array.from(this.rules).forEach((r) => {
             const className = r.constructor.name;
-            if (className !== rule.constructor.name) {
-                return true;
-            } else {
+            if (className === rule.constructor.name) {
                 throw `You cannot set the same rule more than once '${className}'. Use updateRules to update all the rules.`;
             }
         });
