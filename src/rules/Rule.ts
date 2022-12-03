@@ -1,18 +1,22 @@
 abstract class Rule {
-    private readonly errorMessage?: string;
+    private readonly message?: string;
+    protected completed?: boolean;
 
     /**
-     * @param errorMessage The error message to display if the password/PIN does not meet the rule.
+     * @param message The message to display for the rule. For example "Must have a special character".
      */
-    protected constructor(errorMessage?: string) {
-        this.errorMessage = errorMessage;
+    protected constructor(message?: string) {
+        this.message = message;
     }
 
-    getError(): string | undefined | null {
-        return this.errorMessage;
-    }
+    abstract validate(subject: string): void;
 
-    abstract isValid(subject: string): boolean;
+    isCompleted = (): boolean | undefined => this.completed;
+    reset = () => this.completed = undefined;
+
+    getMessage(): string | undefined | null {
+        return this.message;
+    }
 }
 
 export default Rule;

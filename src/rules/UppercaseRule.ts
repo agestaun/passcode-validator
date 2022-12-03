@@ -2,12 +2,15 @@ import Rule from './Rule';
 
 class UppercaseRule extends Rule {
 
-    constructor(errorMessage?: string) {
-        super(errorMessage);
+    /**
+     * @param message The message to display for the rule. For example "Must have a special character".
+     */
+    constructor(message?: string) {
+        super(message);
     }
 
-    isValid(subject: string): boolean {
-        return subject.toLowerCase() !== subject;
+    validate(subject: string) {
+        super.completed = subject.toLowerCase() !== subject;
     }
 }
 

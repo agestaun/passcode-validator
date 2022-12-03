@@ -1,5 +1,4 @@
 import Rule from './rules/Rule';
-import ValidationResponse from './ValidationResponse';
 
 export default class PasswordValidator {
     private rules: Set<Rule>;
@@ -13,24 +12,29 @@ export default class PasswordValidator {
      * @param subject The password/PIN to validate.
      * @return An array of {@link ValidationResponse}.
      */
-    validate = (subject: string): ValidationResponse[] => {
-        return Array.from(this.rules).map((rule) => {
-            const valid = rule.isValid(subject);
-            return { rule, valid, error: valid ? null : rule.getError() };
+    validate = (subject: string): { rules: Rule[], isValid: boolean } => {
+        let isValid = true;
+        this.rules.forEach((r) => {
+            r.validate(subject);
+            if (!r.isCompleted()) {
+                isValid = false;
+            }
         });
+        return { rules: [...this.rules], isValid };
     };
 
     /**
-     * Checks if the password meets all the rules.
-     * @param subject The password/PIN to check. To see what rules the subject meets call {@link validate}.
+     * Checks if the password/PIN meets all the rules. Make sure you validate the password first calling {@link validate}
      * @return True if it meets all the rules. Otherwise, false.
      */
-    isValid = (subject: string): boolean => {
-        return Array.from(this.rules).every((r) => r.isValid(subject));
+    isValid = (): boolean => {
+        return Array.from(this.rules).every((r) => r.isCompleted());
     };
 
     /**
      * Replaces the current rules.
+     * To add a new rule call {@link addRule}
+     * To remove an existing rule call {@link removeRule}
      * @param rules The new rules to set.
      */
     updateRules = (rules: Set<Rule>) => this.rules = rules;
@@ -39,10 +43,11 @@ export default class PasswordValidator {
      * Get the current rules.
      * @return The rules to validate the password/PIN.
      */
-    getRules = (): Rule[] => this.getRules();
+    getRules = (): Rule[] => [...this.rules];
 
     /**
      * Adds a new rule if it does not exist. Throws an error if the instance was already added.
+     * To replace all the rules call {@link updateRules}
      * @param rule
      */
     addRule = (rule: Rule) => {
@@ -56,8 +61,13 @@ export default class PasswordValidator {
     };
 
     /**
-     * Deletes an existing rule.
+     * Removes an existing rule.
      * @param rule
      */
     removeRule = (rule: Rule) => this.rules.delete(rule);
+
+    /**
+     * Sets the completed field of all rules to undefined.
+     */
+    resetRules = () => this.rules.forEach((r) => r.reset());
 }

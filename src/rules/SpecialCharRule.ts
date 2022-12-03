@@ -1,6 +1,7 @@
 import Rule from './Rule';
 
-class LowercaseRule extends Rule {
+class SpecialCharRule extends Rule {
+    private readonly specialCharPattern = new RegExp(/[^A-Za-z0-9]/g);
 
     /**
      * @param message The message to display for the rule. For example "Must have a special character".
@@ -10,8 +11,8 @@ class LowercaseRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = subject.toUpperCase() !== subject;
+        super.completed = this.specialCharPattern.test(subject);
     }
 }
 
-export default LowercaseRule;
+export default SpecialCharRule;

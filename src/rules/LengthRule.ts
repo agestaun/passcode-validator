@@ -13,10 +13,10 @@ class LengthRule extends Rule {
      *
      * @param minLength The minimum required length.
      * @param maxLength The maximum required length. If it's undefined, max will get the value of minLength, so the password/PIN will have a required length instead of a range.
-     * @param errorMessage The error message to display if the password/PIN does not meet the rule.
+     * @param message The message to display for the rule. For example "Must have a special character".
      */
-    constructor(minLength: number, maxLength?: number, errorMessage?: string) {
-        super(errorMessage);
+    constructor(minLength: number, maxLength?: number, message?: string) {
+        super(message);
         if (minLength <= 0 || maxLength === 0) {
             throw LengthRuleError.POSITIVE_VALUE_REQUIRED;
         } else if (maxLength && (maxLength < minLength)) {
@@ -27,8 +27,8 @@ class LengthRule extends Rule {
         }
     }
 
-    isValid(subject: string): boolean {
-        return subject.length >= this.minLength && subject.length <= this.maxLength;
+    validate(subject: string) {
+        super.completed = subject.length >= this.minLength && subject.length <= this.maxLength;
     }
 }
 

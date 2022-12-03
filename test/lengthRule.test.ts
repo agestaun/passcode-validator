@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { LengthRule } from '../src';
 import { LengthRuleError } from '../src/rules/LengthRule';
 import Validator from '../src/Validator';
@@ -6,27 +7,40 @@ describe('Length Rule', () => {
 
     test('should not be valid if it does not meet the required length', () => {
         const validator = new Validator().length(6).build();
-        const valid = validator.isValid('mypassword');
-        expect(valid).toBe(false);
+        const { isValid } = validator.validate('mypassword');
+        expect(isValid).toBe(false);
     });
 
     test('should be valid if it meets the required length', () => {
         const validator = new Validator().length(6).build();
-        const valid = validator.isValid('mypass');
-        expect(valid).toBe(true);
+        const { isValid } = validator.validate('mypass');
+        expect(isValid).toBe(true);
     });
 
     test('should not be valid if it does not meet the range length', () => {
         const validator = new Validator().length(6, 8).build();
-        const firstValidation = validator.isValid('mypwd');
-        const secondValidation = validator.isValid('mypassword');
-        expect(firstValidation || secondValidation).toBe(false);
+        const firstValidation = validator.validate('mypwd');
+        const secondValidation = validator.validate('mypassword');
+        expect(firstValidation.isValid || secondValidation.isValid).toBe(false);
     });
 
     test('should be valid if it meets the range length', () => {
         const validator = new Validator().length(6, 8).build();
-        const valid = validator.isValid('mypass');
-        expect(valid).toBe(true);
+        const { isValid } = validator.validate('mypass');
+        expect(isValid).toBe(true);
+    });
+
+    test('should return the message passed to the rule constructor', () => {
+        const message = 'Must contain at least an uppercase character';
+        const validator = new Validator().length(6, 6, message).build();
+        const rules = validator.getRules();
+        expect(rules[0].getMessage()).toBe(message);
+    });
+
+    test('should return undefined message if no message passed to the constructor', () => {
+        const validator = new Validator().length(6).build();
+        const rules = validator.getRules();
+        expect(rules[0].getMessage()).toBe(undefined);
     });
 
     test('should create the instance if minLength and maxLength have the same value', () => {

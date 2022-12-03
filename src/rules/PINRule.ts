@@ -1,6 +1,7 @@
 import Rule from './Rule';
 
-class LowercaseRule extends Rule {
+class PINRule extends Rule {
+    readonly onlyDigitsPattern = /^\d+$/;
 
     /**
      * @param message The message to display for the rule. For example "Must have a special character".
@@ -10,8 +11,8 @@ class LowercaseRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = subject.toUpperCase() !== subject;
+        super.completed = this.onlyDigitsPattern.test(subject);
     }
 }
 
-export default LowercaseRule;
+export default PINRule;
