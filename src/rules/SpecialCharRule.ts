@@ -1,5 +1,8 @@
 import Rule from './Rule';
 
+/**
+ * Rule to require a special character.
+ */
 class SpecialCharRule extends Rule {
     private readonly specialCharPattern = new RegExp(/[^A-Za-z0-9]/g);
 

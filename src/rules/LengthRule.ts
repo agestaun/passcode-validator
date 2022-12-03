@@ -5,12 +5,14 @@ export enum LengthRuleError {
     MAX_LENGTH_GREATER = 'If maxLength is received, it must be greater or equal to minLength.'
 }
 
+/**
+ * Rule to require a specific length or range.
+ */
 class LengthRule extends Rule {
     readonly minLength: number;
     readonly maxLength: number;
 
     /**
-     *
      * @param minLength The minimum required length.
      * @param maxLength The maximum required length. If it's undefined, max will get the value of minLength, so the password/PIN will have a required length instead of a range.
      * @param message The message to display for the rule. For example "Must have a special character".

@@ -1,5 +1,8 @@
 import Rule from './Rule';
 
+/**
+ * Rule to require lowercase characters.
+ */
 class LowercaseRule extends Rule {
 
     /**

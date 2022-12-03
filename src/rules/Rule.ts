@@ -1,3 +1,6 @@
+/**
+ * Base rule. The rest of the rules must extend from this class.
+ */
 abstract class Rule {
     private readonly message?: string;
     protected completed?: boolean;

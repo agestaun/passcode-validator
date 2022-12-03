@@ -1,5 +1,8 @@
 import Rule from './Rule';
 
+/**
+ * Rule to allow only digits.
+ */
 class PINRule extends Rule {
     readonly onlyDigitsPattern = /^\d+$/;
 
