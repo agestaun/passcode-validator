@@ -1,4 +1,4 @@
-import Validator, { LengthRule, LowercaseRule, PINRule, UppercaseRule } from '../src';
+import Validator, { LengthRule, LowerCaseRule, PINRule, UpperCaseRule } from '../src';
 import { describe, expect, test } from 'vitest';
 
 describe('Password Validator', () => {
@@ -34,8 +34,8 @@ describe('Password Validator', () => {
             .build();
 
         const rules = validator.getRules();
-        expect(rules[0]).toBeInstanceOf(UppercaseRule);
-        expect(rules[1]).toBeInstanceOf(LowercaseRule);
+        expect(rules[0]).toBeInstanceOf(UpperCaseRule);
+        expect(rules[1]).toBeInstanceOf(LowerCaseRule);
 
         const newRules = new Set([new LengthRule(6), new PINRule()]);
         validator.updateRules(newRules);

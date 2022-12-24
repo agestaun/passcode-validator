@@ -1,9 +1,10 @@
-import Rule from './Rule';
+import Rule from './base/Rule';
 
 /**
  * Rule to require uppercase characters.
  */
-class UppercaseRule extends Rule {
+class UpperCaseRule extends Rule {
+    private readonly upperCaseRegex = /[A-Z]/;
 
     /**
      * @param message The message to display for the rule. For example "Must have a special character".
@@ -13,8 +14,8 @@ class UppercaseRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = subject.toLowerCase() !== subject;
+        super.completed = this.upperCaseRegex.test(subject);
     }
 }
 
-export default UppercaseRule;
+export default UpperCaseRule;

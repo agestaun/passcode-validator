@@ -1,9 +1,9 @@
 import LengthRule from './rules/LengthRule';
-import LowercaseRule from './rules/LowercaseRule';
+import LowerCaseRule from './rules/LowerCaseRule';
 import PINRule from './rules/PINRule';
 import PasswordValidator from './PasswordValidator';
 import SpecialCharRule from './rules/SpecialCharRule';
-import UppercaseRule from './rules/UppercaseRule';
+import UpperCaseRule from './rules/UpperCaseRule';
 
 // Class that implements the builder pattern. I avoid to name it ValidatorBuilder to
 // make it cleaner for consume.
@@ -15,12 +15,12 @@ export default class Validator {
     }
 
     upperCase = (message?: string): Validator => {
-        this.validator.addRule(new UppercaseRule(message));
+        this.validator.addRule(new UpperCaseRule(message));
         return this;
     };
 
     lowerCase = (message?: string): Validator => {
-        this.validator.addRule(new LowercaseRule(message));
+        this.validator.addRule(new LowerCaseRule(message));
         return this;
     };
 

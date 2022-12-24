@@ -1,9 +1,10 @@
-import Rule from './Rule';
+import Rule from './base/Rule';
 
 /**
  * Rule to require lowercase characters.
  */
-class LowercaseRule extends Rule {
+class LowerCaseRule extends Rule {
+    private readonly lowerCaseRegex = /[a-z]/;
 
     /**
      * @param message The message to display for the rule. For example "Must have a special character".
@@ -13,8 +14,8 @@ class LowercaseRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = subject.toUpperCase() !== subject;
+        super.completed = this.lowerCaseRegex.test(subject);
     }
 }
 
-export default LowercaseRule;
+export default LowerCaseRule;

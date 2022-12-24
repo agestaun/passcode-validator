@@ -1,4 +1,4 @@
-import Rule from './Rule';
+import Rule from './base/Rule';
 
 export enum LengthRuleError {
     POSITIVE_VALUE_REQUIRED = 'The values cannot be smaller or equal to zero.',

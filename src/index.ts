@@ -1,8 +1,8 @@
 import LengthRule from './rules/LengthRule';
-import LowercaseRule from './rules/LowercaseRule';
+import LowerCaseRule from './rules/LowerCaseRule';
 import PINRule from './rules/PINRule';
-import UppercaseRule from './rules/UppercaseRule';
+import UpperCaseRule from './rules/UpperCaseRule';
 import Validator from './Validator';
 
-export { UppercaseRule, LowercaseRule, LengthRule, PINRule };
+export { UpperCaseRule, LowerCaseRule, LengthRule, PINRule };
 export default Validator;

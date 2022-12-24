@@ -1,4 +1,4 @@
-import Rule from './Rule';
+import Rule from './base/Rule';
 
 /**
  * Rule to allow only digits.

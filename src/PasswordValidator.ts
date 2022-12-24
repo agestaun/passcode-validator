@@ -1,4 +1,4 @@
-import Rule from './rules/Rule';
+import Rule from './rules/base/Rule';
 
 export default class PasswordValidator {
     private rules: Set<Rule>;

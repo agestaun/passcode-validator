@@ -1,10 +1,10 @@
-import Rule from './Rule';
+import Rule from './base/Rule';
 
 /**
  * Rule to require a special character.
  */
 class SpecialCharRule extends Rule {
-    private readonly specialCharPattern = new RegExp(/[^A-Za-z0-9]/g);
+    private readonly specialCharRegex = new RegExp(/[^A-Za-z0-9]/g);
 
     /**
      * @param message The message to display for the rule. For example "Must have a special character".
@@ -14,7 +14,7 @@ class SpecialCharRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = this.specialCharPattern.test(subject);
+        super.completed = this.specialCharRegex.test(subject);
     }
 }
 
