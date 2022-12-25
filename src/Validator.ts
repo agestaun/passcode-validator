@@ -1,3 +1,4 @@
+import ForbiddenText from './rules/ForbiddenText';
 import LengthRule from './rules/LengthRule';
 import LowerCaseRule from './rules/LowerCaseRule';
 import PINRule from './rules/PINRule';
@@ -36,6 +37,11 @@ export default class Validator {
 
     specialChar = (message?: string): Validator => {
         this.validator.addRule(new SpecialCharRule(message));
+        return this;
+    };
+
+    forbidden = (texts: string[], message?: string): Validator => {
+        this.validator.addRule(new ForbiddenText(texts, message));
         return this;
     };
 
