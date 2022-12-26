@@ -1,6 +1,7 @@
 import ForbiddenText from './rules/ForbiddenText';
 import LengthRule from './rules/LengthRule';
 import LowerCaseRule from './rules/LowerCaseRule';
+import MaxRepeatedInRowRule from './rules/MaxRepeatedInRowRule';
 import PINRule from './rules/PINRule';
 import PasswordValidator from './PasswordValidator';
 import SpecialCharRule from './rules/SpecialCharRule';
@@ -42,6 +43,11 @@ export default class Validator {
 
     forbidden = (texts: string[], message?: string): Validator => {
         this.validator.addRule(new ForbiddenText(texts, message));
+        return this;
+    };
+
+    maxRepeated = (count: number, ignoreCase = false, message?: string): Validator => {
+        this.validator.addRule(new MaxRepeatedInRowRule(count, ignoreCase, message));
         return this;
     };
 
