@@ -14,8 +14,8 @@ class DigitRule extends Rule {
         this.digitsCount = count;
     }
 
-    validate(subject: string): void {
-        super.completed = subject.replace(this.digitRegex, '').length >= this.digitsCount;
+    validate(subject: string) {
+        this.completed = subject.replace(this.digitRegex, '').length >= this.digitsCount;
     }
 }
 

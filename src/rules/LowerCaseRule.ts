@@ -14,7 +14,7 @@ class LowerCaseRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = this.lowerCaseRegex.test(subject);
+        this.completed = this.lowerCaseRegex.test(subject);
     }
 }
 

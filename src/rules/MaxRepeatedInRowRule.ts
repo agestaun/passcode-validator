@@ -20,8 +20,8 @@ class MaxRepeatedInRowRule extends Rule {
         this.ignoreCase = ignoreCase;
     }
 
-    validate(subject: string): void {
-        super.completed = (this.ignoreCase ? subject : subject.toLowerCase())
+    validate(subject: string) {
+        this.completed = (this.ignoreCase ? subject : subject.toLowerCase())
             .match(this.repeatedCharsInRowRegex)
             ?.every((group: string) => group.length <= this.totalCharsInRowAllowed);
     }

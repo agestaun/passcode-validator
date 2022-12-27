@@ -5,8 +5,8 @@ import RuleError from '../errors/RuleError';
  * Rule to require a specific length or range.
  */
 class LengthRule extends Rule {
-    readonly minLength: number;
-    readonly maxLength: number;
+    private readonly minLength: number;
+    private readonly maxLength: number;
 
     /**
      * @param minLength The minimum required length.
@@ -26,7 +26,7 @@ class LengthRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = subject.length >= this.minLength && subject.length <= this.maxLength;
+        this.completed = subject.length >= this.minLength && subject.length <= this.maxLength;
     }
 }
 

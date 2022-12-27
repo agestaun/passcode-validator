@@ -14,7 +14,7 @@ class SpecialCharRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = this.specialCharRegex.test(subject);
+        this.completed = this.specialCharRegex.test(subject);
     }
 }
 

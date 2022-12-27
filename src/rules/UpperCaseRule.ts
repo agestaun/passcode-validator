@@ -14,7 +14,7 @@ class UpperCaseRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = this.upperCaseRegex.test(subject);
+        this.completed = this.upperCaseRegex.test(subject);
     }
 }
 

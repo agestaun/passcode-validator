@@ -4,7 +4,7 @@ import Rule from './base/Rule';
  * Rule to allow only digits.
  */
 class PINRule extends Rule {
-    readonly onlyDigitsPattern = /^\d+$/;
+    private readonly onlyDigitsPattern = /^\d+$/;
 
     /**
      * @param message The message to display for the rule. For example "Must have a special character".
@@ -14,7 +14,7 @@ class PINRule extends Rule {
     }
 
     validate(subject: string) {
-        super.completed = this.onlyDigitsPattern.test(subject);
+        this.completed = this.onlyDigitsPattern.test(subject);
     }
 }
 

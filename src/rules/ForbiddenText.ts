@@ -13,7 +13,7 @@ class ForbiddenText extends Rule {
 
     validate(subject: string) {
         const subjectLowerCased = subject.toLowerCase();
-        super.completed = this.texts.every(value => !subjectLowerCased.includes(value.toLowerCase()));
+        this.completed = this.texts.every(value => !subjectLowerCased.includes(value.toLowerCase()));
     }
 }
 
