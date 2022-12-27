@@ -3,6 +3,10 @@ import ForbiddenText from './rules/ForbiddenText';
 import LengthRule from './rules/LengthRule';
 import LowerCaseRule from './rules/LowerCaseRule';
 import MaxRepeatedInRowRule from './rules/MaxRepeatedInRowRule';
+import NoDigitRule from './rules/NoDigitRule';
+import NoLowerCaseRule from './rules/NoLowerCaseRule';
+import NoSpecialCharRule from './rules/NoSpecialCharRule';
+import NoUpperCaseRule from './rules/NoUpperCaseRule';
 import PINRule from './rules/PINRule';
 import PasswordValidator from './PasswordValidator';
 import SpecialCharRule from './rules/SpecialCharRule';
@@ -22,8 +26,18 @@ export default class Validator {
         return this;
     };
 
+    noUpperCase = (message?: string): Validator => {
+        this.validator.addRule(new NoUpperCaseRule(message));
+        return this;
+    };
+
     lowerCase = (message?: string): Validator => {
         this.validator.addRule(new LowerCaseRule(message));
+        return this;
+    };
+
+    noLowerCase = (message?: string): Validator => {
+        this.validator.addRule(new NoLowerCaseRule(message));
         return this;
     };
 
@@ -42,8 +56,18 @@ export default class Validator {
         return this;
     };
 
+    noDigit = (message?: string) => {
+        this.validator.addRule(new NoDigitRule(message));
+        return this;
+    };
+
     specialChar = (message?: string): Validator => {
         this.validator.addRule(new SpecialCharRule(message));
+        return this;
+    };
+
+    noSpecialChar = (message?: string): Validator => {
+        this.validator.addRule(new NoSpecialCharRule(message));
         return this;
     };
 
