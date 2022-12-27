@@ -1,6 +1,6 @@
 import Rule from './rules/base/Rule';
 
-export default class PasswordValidator {
+export default class PasscodeValidator {
     private rules: Set<Rule>;
 
     constructor() {
@@ -10,7 +10,7 @@ export default class PasswordValidator {
     /**
      * Validates the subject against the rules. To check only if it's valid call {@link isValid}.
      * @param subject The password/PIN to validate.
-     * @return An array of {@link ValidationResponse}.
+     * @return An object with {@link rules} and the isValid boolean.
      */
     validate = (subject: string): { rules: Rule[], isValid: boolean } => {
         let isValid = true;

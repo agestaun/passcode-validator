@@ -8,17 +8,16 @@ import NoLowerCaseRule from './rules/NoLowerCaseRule';
 import NoSpecialCharRule from './rules/NoSpecialCharRule';
 import NoUpperCaseRule from './rules/NoUpperCaseRule';
 import PINRule from './rules/PINRule';
-import PasswordValidator from './PasswordValidator';
+import PasscodeValidator from './PasscodeValidator';
 import SpecialCharRule from './rules/SpecialCharRule';
 import UpperCaseRule from './rules/UpperCaseRule';
 
-// Class that implements the builder pattern. I avoid to name it ValidatorBuilder to
-// make it cleaner for consume.
+// Class that implements the builder pattern. I avoid to name it ValidatorBuilder to make it cleaner for consume.
 export default class Validator {
-    private readonly validator: PasswordValidator;
+    private readonly validator: PasscodeValidator;
 
     constructor() {
-        this.validator = new PasswordValidator();
+        this.validator = new PasscodeValidator();
     }
 
     upperCase = (message?: string): Validator => {
@@ -81,5 +80,5 @@ export default class Validator {
         return this;
     };
 
-    build = (): PasswordValidator => this.validator;
+    build = (): PasscodeValidator => this.validator;
 }
