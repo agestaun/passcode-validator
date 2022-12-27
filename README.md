@@ -40,7 +40,7 @@ To check what rules are completed or uncompleted call **isCompleted()** on every
 | Max Repeated in row  | Validates the maximum number of times any character can appear in the password consecutively. |
 | Forbidden text       | Forbids a text or some texts to appear in the password or PIN.                                |
 
-> 👁 **More rules will be added in a near future**. Open a ticket if you miss something in particular.
+> 👁 **More rules will be added in the near future**. Open a ticket if you miss something in particular.
 
 <br/><br/>
 
