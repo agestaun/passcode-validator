@@ -1,5 +1,9 @@
-import Validator, { LengthRule, LowerCaseRule, PINRule, UpperCaseRule } from '../src';
+import Validator from '../src';
 import { describe, expect, test } from 'vitest';
+import LengthRule from '../src/rules/LengthRule';
+import LowerCaseRule from '../src/rules/LowerCaseRule';
+import PINRule from '../src/rules/PINRule';
+import UpperCaseRule from '../src/rules/UpperCaseRule';
 
 describe('Password Validator', () => {
 

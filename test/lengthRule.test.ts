@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { LengthRule } from '../src';
 import RuleError from '../src/errors/RuleError';
+import LengthRule from '../src/rules/LengthRule';
 import Validator from '../src/Validator';
 
 describe('Length Rule', () => {
