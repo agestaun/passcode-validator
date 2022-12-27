@@ -25,16 +25,20 @@ To check what rules are completed or uncompleted call **isCompleted()** on every
 
 ## Available rules
 
-| Rule                | Description                                                                                   |
-|---------------------|-----------------------------------------------------------------------------------------------|
-| UpperCase           | Requires at least an uppercase character.                                                     |
-| LowerCase           | Requires at least a lowercase character.                                                      |
-| Length              | Requires a specific length or range.                                                          |
-| PIN                 | Requires a PIN with only digits.                                                              |
-| Digit               | Requires 1 or more digits.                                                                    |
-| Special Character   | Requires at least a special character.                                                        |
-| Max Repeated in row | Validates the maximum number of times any character can appear in the password consecutively. |
-| Forbidden text      | Forbids a text or some texts to appear in the password or PIN.                                |
+| Rule                 | Description                                                                                   |
+|----------------------|-----------------------------------------------------------------------------------------------|
+| UpperCase            | Requires at least an uppercase character.                                                     |
+| No UpperCase         | Forbids uppercase characters.                                                                 |
+| LowerCase            | Requires at least a lowercase character.                                                      |
+| No LowerCase         | Forbids lowercase characters.                                                                 |
+| Length               | Requires a specific length or range.                                                          |
+| PIN                  | Requires a PIN with only digits.                                                              |
+| Digit                | Requires 1 or more digits.                                                                    |
+| No Digit             | Forbids digits.                                                                               |
+| Special Character    | Requires at least a special character.                                                        |
+| No Special Character | Forbids special characters.                                                                   |
+| Max Repeated in row  | Validates the maximum number of times any character can appear in the password consecutively. |
+| Forbidden text       | Forbids a text or some texts to appear in the password or PIN.                                |
 
 > 👁 **More rules will be added in a near future**. Open a ticket if you miss something in particular.
 
