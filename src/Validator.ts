@@ -1,3 +1,4 @@
+import DigitRule from './rules/DigitRule';
 import ForbiddenText from './rules/ForbiddenText';
 import LengthRule from './rules/LengthRule';
 import LowerCaseRule from './rules/LowerCaseRule';
@@ -33,6 +34,11 @@ export default class Validator {
 
     numeric = (message?: string): Validator => {
         this.validator.addRule(new PINRule(message));
+        return this;
+    };
+
+    digit = (count = 1, message?: string) => {
+        this.validator.addRule(new DigitRule(count, message));
         return this;
     };
 
