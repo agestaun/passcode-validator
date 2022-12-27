@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { LengthRule } from '../src';
-import { LengthRuleError } from '../src/rules/LengthRule';
+import RuleError from '../src/errors/RuleError';
+import LengthRule from '../src/rules/LengthRule';
 import Validator from '../src/Validator';
 
 describe('Length Rule', () => {
@@ -49,21 +49,21 @@ describe('Length Rule', () => {
 
     test('should throw an error if minLength is negative', () => {
         expect(() => new LengthRule(-6))
-            .toThrow(LengthRuleError.POSITIVE_VALUE_REQUIRED);
+            .toThrow(RuleError.POSITIVE_VALUE_REQUIRED);
     });
 
     test('should throw an error if minLength is 0', () => {
         expect(() => new LengthRule(0))
-            .toThrow(LengthRuleError.POSITIVE_VALUE_REQUIRED);
+            .toThrow(RuleError.POSITIVE_VALUE_REQUIRED);
     });
 
     test('should throw an error if maxLength is 0', () => {
         expect(() => new LengthRule(6, 0))
-            .toThrow(LengthRuleError.POSITIVE_VALUE_REQUIRED);
+            .toThrow(RuleError.POSITIVE_VALUE_REQUIRED);
     });
 
     test('should throw an error if maxLength is smaller than minLength', () => {
         expect(() => new LengthRule(6, 5))
-            .toThrow(LengthRuleError.MAX_LENGTH_GREATER);
+            .toThrow(RuleError.MAX_LENGTH_GREATER);
     });
 });
