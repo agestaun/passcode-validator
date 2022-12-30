@@ -1,15 +1,16 @@
 {
   "author": "Adrian Garcia Estaun",
-  "name": "password-validator",
-  "description": "Validate passwords and PINS",
+  "name": "passcode-validator",
+  "description": "Validate passwords and numeric codes",
   "keywords": [
     "validation",
     "password",
+    "passcode",
     "PIN",
     "numeric password",
     "input field validation"
   ],
-  "version": "1.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "src/index.ts",
   "homepage": "https://github.com/agestaun/password-validator",
@@ -18,7 +19,8 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "npx eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "pack": "npm pack"
   },
   "devDependencies": {
     "@types/jest": "29.2.2",
