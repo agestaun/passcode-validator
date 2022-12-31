@@ -50,12 +50,12 @@ export default class Validator {
         return this;
     };
 
-    digit = (count = 1, message?: string) => {
+    digit = (count = 1, message?: string): Validator => {
         this.validator.addRule(new DigitRule(count, message));
         return this;
     };
 
-    noDigit = (message?: string) => {
+    noDigit = (message?: string): Validator => {
         this.validator.addRule(new NoDigitRule(message));
         return this;
     };
