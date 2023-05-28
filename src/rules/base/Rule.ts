@@ -2,6 +2,7 @@
  * Base rule. The rest of the rules must extend from this class.
  */
 abstract class Rule {
+    readonly name: string;
     private readonly message?: string;
     protected completed?: boolean;
 
@@ -9,6 +10,7 @@ abstract class Rule {
      * @param message The message to display for the rule. For example "Must have a special character".
      */
     protected constructor(message?: string) {
+        this.name = this.constructor.name;
         this.message = message;
     }
 
