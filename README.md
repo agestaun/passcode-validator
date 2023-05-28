@@ -1,4 +1,4 @@
-# WIP 🚧 - Passcode Validator 🔐
+# Passcode Validator 🔐
  Validate passwords and numeric codes easily using Typescript or Javascript.
 
 ## Installation
