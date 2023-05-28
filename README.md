@@ -3,7 +3,7 @@
 
 ## Installation
 For now, you can only install it using npm
->npm install passcode-validator
+>npm i passcode-validator
 
 ## How to use it
 Create an instance from Validator class and set as many rules as you need to validate the password or PIN.
