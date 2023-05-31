@@ -23,6 +23,8 @@ To check what rules are completed or uncompleted call **isCompleted()** on every
 
     const uncompletedRules = rules.map(rule => !rule.isCompleted());
 
+For a more detailed explanation on how to use it, I recommend checking out [this post on Medium](https://medium.com/@adrian.garcia.estaun/validate-passwords-and-pins-with-typescript-6ba15626123d).
+
 ## Available rules
 
 | Rule                 | Description                                                                                   |
